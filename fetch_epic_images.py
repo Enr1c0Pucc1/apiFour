@@ -8,6 +8,8 @@ from pathlib import Path
 
 
 def epic():
+    load_dotenv()
+    nasa_api_key = os.environ['NASA_API_KEY']
     url = f'https://api.nasa.gov/EPIC/api/natural/images?api_key={nasa_api_key}'
     response = requests.get(url)
     response.raise_for_status()
@@ -22,11 +24,8 @@ def epic():
         download_image(url, file_name)
 
 
-
 def fetch_epic():
-    load_dotenv()
     Path('images').mkdir(parents=True, exist_ok=True)
-    nasa_api_key = os.environ['NASA_API_KEY']
     epic()
 
 
