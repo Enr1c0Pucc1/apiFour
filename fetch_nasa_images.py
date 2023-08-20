@@ -26,9 +26,13 @@ def download_nasa_apods(urls):
         download_image(photo, filename)
 
 
-if __name__ == '__main__':
+def fetch_nasa():
     load_dotenv()
     Path('images').mkdir(parents=True, exist_ok=True)
     nasa_api_key = os.environ['NASA_API_KEY']
     photo_urls = fetch_nasa_apod()
     download_nasa_apods(photo_urls)
+
+
+if __name__ == '__main__':
+    fetch_nasa()

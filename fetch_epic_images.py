@@ -22,8 +22,13 @@ def epic():
         download_image(url, file_name)
 
 
-if __name__ == '__main__':
+
+def fetch_epic():
     load_dotenv()
     Path('images').mkdir(parents=True, exist_ok=True)
     nasa_api_key = os.environ['NASA_API_KEY']
     epic()
+
+
+if __name__ == '__main__':
+    fetch_epic()

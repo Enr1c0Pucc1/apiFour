@@ -20,7 +20,7 @@ def fetch_spacex_launch(launch_id):
         download_image(photo, filename)
 
 
-if __name__ == '__main__':
+def fetch_spacex():
     parser = argparse.ArgumentParser()
     parser.add_argument('--launch_id',
                          type=str,
@@ -28,3 +28,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     Path('images').mkdir(parents=True, exist_ok=True)
     fetch_spacex_launch(launch_id=args.launch_id)
+
+
+if __name__ == '__main__':
+    fetch_spacex()
