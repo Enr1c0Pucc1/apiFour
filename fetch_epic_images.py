@@ -24,10 +24,9 @@ def epic():
         download_image(url, file_name)
 
 
-def fetch_epic():
-    Path('images').mkdir(parents=True, exist_ok=True)
+def main():
     epic()
 
 
 if __name__ == '__main__':
-    fetch_epic()
+    main()

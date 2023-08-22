@@ -7,6 +7,7 @@ from pathlib import Path
 
 
 def download_image(photo,filename):
+    Path('images').mkdir(parents=True, exist_ok=True)
     extension = check_extension(photo)
     response = requests.get(photo)
     response.raise_for_status()

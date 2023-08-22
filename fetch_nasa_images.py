@@ -19,20 +19,14 @@ def fetch_nasa_apod():
     for photo in photos:
         photo_url = photo['url']
         nasa_urls.append(photo_url)
-    return nasa_urls
-
-
-def download_nasa_apods(urls):
-    for count, photo in enumerate(urls, start=1):
+    for count, photo in enumerate(nasa_urls, start=1):
         filename = f'nasa_apod_{count}'
         download_image(photo, filename)
 
 
-def fetch_nasa():
-    Path('images').mkdir(parents=True, exist_ok=True)
-    photo_urls = fetch_nasa_apod()
-    download_nasa_apods(photo_urls)
+def main():
+    fetch_nasa_apod()
 
 
 if __name__ == '__main__':
-    fetch_nasa()
+    main()

@@ -16,11 +16,11 @@ def main():
     telegram_bot_token = os.environ['TELEGRAM_TOKEN']
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--t',
+    parser.add_argument('--pause',
                         type=int,
                         default=os.environ['DEFAULT_PAUSE'])
     args = parser.parse_args()
-    pause_time = args.t
+    pause_time = args.pause
 
     os.environ['DEFAULT_PAUSE'] = str(pause_time)
     dotenv.set_key(dotenv_file, 'DEFAULT_PAUSE', os.environ['DEFAULT_PAUSE'])
