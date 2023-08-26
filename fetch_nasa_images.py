@@ -9,8 +9,6 @@ from pathlib import Path
 
 def fetch_nasa_apod():
     params = {'count' : 40}
-    load_dotenv()
-    nasa_api_key = os.environ['NASA_API_KEY']
     url = f'https://api.nasa.gov/planetary/apod?api_key={nasa_api_key}'
     response = requests.get(url,params=params)
     response.raise_for_status()
@@ -24,9 +22,7 @@ def fetch_nasa_apod():
         download_image(photo, filename)
 
 
-def main():
-    fetch_nasa_apod()
-
-
 if __name__ == '__main__':
-    main()
+    load_dotenv()
+    nasa_api_key = os.environ['NASA_API_KEY']
+    fetch_nasa_apod()
