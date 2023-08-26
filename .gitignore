@@ -146,11 +146,11 @@ cython_debug/
 
 images/
 
-.config/**
+**.config/**
 
-.upm/
+*.upm/*
 
-.breakpoints
+*.breakpoints*
 
 # PyCharm
 #  JetBrains specific template is maintainted in a separate JetBrains.gitignore that can
