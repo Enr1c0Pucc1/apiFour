@@ -5,8 +5,9 @@ from dotenv import load_dotenv
 
 
 def epic(api_key):
-    url = f'https://api.nasa.gov/EPIC/api/natural/images?api_key={nasa_api_key}'
-    response = requests.get(url)
+    params = {'api_key' : api_key}
+    url = 'https://api.nasa.gov/EPIC/api/natural/images'
+    response = requests.get(url, params=params)
     response.raise_for_status()
     epic_files = response.json()
     for count, epic in enumerate(epic_files, start=1):
