@@ -3,9 +3,6 @@ from main import download_image
 import requests
 import argparse
 
-from urllib.parse import urlsplit
-from pathlib import Path
-
 
 def fetch_spacex_launch(launch_id):
     id = launch_id

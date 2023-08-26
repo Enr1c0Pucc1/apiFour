@@ -3,9 +3,6 @@ from main import download_image
 import requests
 from dotenv import load_dotenv
 
-from urllib.parse import urlsplit
-from pathlib import Path
-
 
 def fetch_nasa_apod():
     params = {'count' : 40}
