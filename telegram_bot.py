@@ -22,9 +22,6 @@ def main():
     args = parser.parse_args()
     pause_time = args.pause
 
-    os.environ['DEFAULT_PAUSE'] = str(pause_time)
-    dotenv.set_key(dotenv_file, 'DEFAULT_PAUSE', os.environ['DEFAULT_PAUSE'])
-
     while True:
         bot = telegram.Bot(token=telegram_bot_token)
         chat_id = bot.get_updates()[-1].message.chat_id
