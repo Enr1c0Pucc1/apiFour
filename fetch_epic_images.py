@@ -1,10 +1,10 @@
 import os
-from main import download_image
+from help_functions import download_image
 import requests
 from dotenv import load_dotenv
 
 
-def epic():
+def epic(api_key):
     url = f'https://api.nasa.gov/EPIC/api/natural/images?api_key={nasa_api_key}'
     response = requests.get(url)
     response.raise_for_status()
@@ -14,7 +14,7 @@ def epic():
         unsplit_date = epic['date'].split()
         date_split = unsplit_date[0].split('-')
         year, month, day = date_split
-        url = f'https://api.nasa.gov/EPIC/archive/natural/{year}/{month}/{day}/png/{filename}.png?api_key={nasa_api_key}'
+        url = f'https://api.nasa.gov/EPIC/archive/natural/{year}/{month}/{day}/png/{filename}.png?api_key={api_key}'
         file_name = f'epic_{count}'
         download_image(url, file_name)
 
@@ -22,4 +22,4 @@ def epic():
 if __name__ == '__main__':
     load_dotenv()
     nasa_api_key = os.environ['NASA_API_KEY']
-    epic()
+    epic(nasa_api_key)

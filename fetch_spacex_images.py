@@ -1,5 +1,5 @@
 import os
-from main import download_image
+from help_functions import download_image
 import requests
 import argparse
 
