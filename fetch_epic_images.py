@@ -24,9 +24,5 @@ def epic():
         download_image(url, file_name)
 
 
-def main():
-    epic()
-
-
 if __name__ == '__main__':
-    main()
+    epic()
