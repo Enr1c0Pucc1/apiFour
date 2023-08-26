@@ -1,5 +1,5 @@
 import os
-from main import download_image, check_file_extension
+from main import download_image
 import requests
 from dotenv import load_dotenv
 
