@@ -13,8 +13,8 @@ def epic():
     url = f'https://api.nasa.gov/EPIC/api/natural/images?api_key={nasa_api_key}'
     response = requests.get(url)
     response.raise_for_status()
-    epic_json = response.json()
-    for count, epic in enumerate(epic_json, start=1):
+    epic_files = response.json()
+    for count, epic in enumerate(epic_files, start=1):
         filename = epic['image']
         unsplit_date = epic['date'].split()
         date_split = unsplit_date[0].split('-')
