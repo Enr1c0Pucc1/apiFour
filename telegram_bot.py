@@ -26,7 +26,8 @@ def main():
         bot = telegram.Bot(token=telegram_bot_token)
         chat_id = bot.get_updates()[-1].message.chat_id
         for file in filenames:
-            bot.send_photo(chat_id=chat_id, photo=open(f'images/{file}', 'rb'))
+            with open(f'images/{file}', 'rb') as photo:
+                bot.send_photo(chat_id=chat_id, photo=photo)
             time.sleep(pause_time)
         break
 
