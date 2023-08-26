@@ -25,7 +25,7 @@ def main():
 
     while True:
         bot = telegram.Bot(token=telegram_bot_token)
-        chat_id = '@SpaceBotImages'
+        chat_id = channel_id
         for file in filenames:
             with open(f'images/{file}', 'rb') as photo:
                 bot.send_photo(chat_id=chat_id, photo=photo)
