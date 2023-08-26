@@ -11,7 +11,7 @@ def download_image(photo,filename):
     extension = check_extension(photo)
     response = requests.get(photo)
     response.raise_for_status()
-    if not extension:
+    if extension:
         with open(f'images/{filename}{extension}', 'wb') as file:
             file.write(response.content)
 
