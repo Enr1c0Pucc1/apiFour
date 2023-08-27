@@ -16,9 +16,10 @@ def main():
     telegram_bot_token = os.environ['TELEGRAM_TOKEN']
     channel_id = os.environ['CHANNEL_ID']
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='Скрипт отправляет фото в Телеграм-канал с паузой.')
     parser.add_argument('--pause',
                         type=int,
+                        help='задержка перед между отправкой фото, в секундах.',
                         default=14400)
     args = parser.parse_args()
     pause_time = args.pause
