@@ -5,18 +5,16 @@ from dotenv import load_dotenv
 
 
 def fetch_nasa_apod(api_key):
-    params = {'count' : 40, 'api_key' : api_key}
+    download_count = 40
+    params = {'count' : download_count, 'api_key' : api_key}
     url = 'https://api.nasa.gov/planetary/apod'
     response = requests.get(url,params=params)
     response.raise_for_status()
     photos = response.json()
-    nasa_urls = []
-    for photo in photos:
+    for count, photo in enumerate(photos, start=1):
         photo_url = photo['url']
-        nasa_urls.append(photo_url)
-    for count, photo in enumerate(nasa_urls, start=1):
         filename = f'nasa_apod_{count}'
-        download_image(photo, filename)
+        download_image(photo_url, filename)
 
 
 if __name__ == '__main__':

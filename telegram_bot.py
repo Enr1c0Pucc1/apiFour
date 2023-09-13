@@ -14,7 +14,7 @@ def main():
     filenames = next(os.walk('images/'), (None, None, []))[2]
     random_filenames = random.shuffle(filenames)
     telegram_bot_token = os.environ['TELEGRAM_TOKEN']
-    channel_id = os.environ['CHANNEL_ID']
+    channel_id = os.environ['TG_CHANNEL_ID']
 
     parser = argparse.ArgumentParser(description='Скрипт отправляет фото в Телеграм-канал с паузой.')
     parser.add_argument('--pause',
@@ -23,13 +23,14 @@ def main():
                         default=14400)
     args = parser.parse_args()
     pause_time = args.pause
+    
+    bot = telegram.Bot(token=telegram_bot_token)
 
     while True:
-        bot = telegram.Bot(token=telegram_bot_token)
-        chat_id = channel_id
+       
         for file in filenames:
             with open(f'images/{file}', 'rb') as photo:
-                bot.send_photo(chat_id=chat_id, photo=photo)
+                bot.send_photo(chat_id=channel_id, photo=photo)
             time.sleep(pause_time)
         break
 
