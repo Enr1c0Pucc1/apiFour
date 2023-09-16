@@ -10,7 +10,6 @@ def fetch_spacex_launch(launch_id):
     response.raise_for_status()
     photos = response.json()['links']['flickr']['original']
     if not photos:
-        print('No latest photos')
         return None
     for count, photo in enumerate(photos, start=1):
         filename = f'spacex_{count}'
