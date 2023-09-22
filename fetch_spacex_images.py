@@ -9,8 +9,6 @@ def fetch_spacex_launch(launch_id):
     response = requests.get(url)
     response.raise_for_status()
     photos = response.json()['links']['flickr']['original']
-    if not photos:
-        return None
     for count, photo in enumerate(photos, start=1):
         filename = f'spacex_{count}'
         download_image(photo, filename)
